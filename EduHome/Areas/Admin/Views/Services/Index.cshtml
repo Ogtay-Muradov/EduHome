@@ -1,0 +1,40 @@
+﻿@model List<Service>
+
+<div class="card">
+   <div class="d-flex justify-content-between align-items-center">
+        <h5 class="card-header">Services</h5>
+        <a asp-action="Create" style="width:110px;margin-right:25px" class="btn btn-primary text-white rounded-pill">Create</a>
+   </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th style="text-align:right">Action</th>
+
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+               @foreach (Service item in Model)
+               {
+                  <tr>
+
+                        <td>@item.Name</td>
+
+
+                        <td>
+                            <div class="d-flex justify-content-end">
+                                <a asp-action="Detail" asp-route-id="@item.Id" style="width:110px; margin-right:5px" class="btn btn-warning text-white rounded-pill">Detail</a>
+                                <a asp-action="Update" asp-route-id="@item.Id" style="width:110px; margin-right:5px" class="btn btn-success text-white rounded-pill">Update</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" style="width:110px; margin-right:5px" class="btn btn-danger text-white rounded-pill">Delete</a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
